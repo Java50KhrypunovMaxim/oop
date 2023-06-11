@@ -15,6 +15,27 @@ import telran.utils.EvenOddComparator;
 class ArraysTest {
  Integer[] numbers = {10,5,-5,100,200};
  String[] strings = {"lmn","a","ab","abc","b","ba"};
+ 
+ 
+ @Test
+ void additionalTask1Test()
+ {
+	 int [] arr = {1,3,3,2,8,8,8,5,6,6};
+	 assertEquals (3,maxSubsequenceLength(arr));
+	 int [] arr1 = {1,3,3,2,8,8,8,5,6,6,4,1,1,1,1};
+	 assertEquals (4,maxSubsequenceLength(arr1));
+	 int [] arr2 = {1,2,3,4,5,6,7};
+	 assertEquals (0,maxSubsequenceLength(arr2));
+ }
+ 
+ void additionalTask2Test()
+ {
+	 int number = 170289;
+	 assertEquals (Integer.toBinaryString(number),toBinaryStr(number)); 
+	 number = 0;
+	 assertEquals (Integer.toBinaryString(number),toBinaryStr(number));
+ }
+ 
  @Test
  void addObjectTest() {
   Integer[]expectedNumbers = {10,5,-5,100,200,50};
