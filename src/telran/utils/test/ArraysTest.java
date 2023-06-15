@@ -75,7 +75,7 @@ Integer [] expected= {10, 100, 200, 5, -5};
 Integer [] array = {10, 5,-5, 100, 200};
 bubbleSort(array, new EvenOddComparator());
 assertArrayEquals(expected,array);
-Integer [] expected1= {4, 6, 8, 10, 1, 5};
+Integer [] expected1= {4, 6, 8, 10, 5, 1};
 Integer [] array1 = {6, 8, 1, 4, 5, 10};
 bubbleSort(array1, new EvenOddComparator());
 assertArrayEquals(expected1,array1);

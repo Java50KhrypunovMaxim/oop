@@ -37,7 +37,15 @@ public static String toBinaryStr(int number) {
      return stringBinary;
     }	
 
-	
+///////////////////////Additional Task 3	
+
+public static boolean isAnagram (String sourceWord, String targetWord) 
+{
+    sourceWord = sourceWord.toLowerCase();
+    targetWord = targetWord.toLowerCase();
+    if (sourceWord.length() != targetWord.length()) {return false;}
+    return false;
+}	
 	
 	
 ////////////////////////////////////////
