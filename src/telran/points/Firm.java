@@ -59,7 +59,7 @@ public void addEmployee(Employee myEmployee)
 }
 
 
-public boolean removeEmployeeByPredicate(Predicate<Employee> predicate,  Comparator<Employee>comp)
+public boolean removeEmployeeByPredicate(Predicate<Employee> predicate)
 {
 	int oldSize = myFirmEmployes.length;
 	Employee [] tmp = new Employee [oldSize];
@@ -72,7 +72,6 @@ public boolean removeEmployeeByPredicate(Predicate<Employee> predicate,  Compara
 		}
 	}
 	this.myFirmEmployes = Arrays.copyOf(tmp, index);
-	Arrays.sort(tmp,comp);
 	return oldSize>myFirmEmployes.length;
 }
 

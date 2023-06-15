@@ -91,38 +91,34 @@ assertArrayEquals(expected,firm.getEmployeesByDepartment(new PredicateGetDepartm
 		Comparator.naturalOrder()));
 }
 
+@Test
 void removeByIDTest()
 {
 	Employee[] expected = {
 			 
+			
 			new Employee (12450,"Anatoliy",1991,"Software",12000), 
 			new Employee (12550,"Alex",1985,"QA",10000),
 			new Employee (12650,"Dan",1987,"Manadger",18000),
 			new Employee (12850,"Margo",1999,"Clining",8000),
-			new Employee (13300,"Maxim",1989,"Software",15000)};
-	assertTrue (firm.removeEmployeeByPredicate(new PredicateRemoveById(12750), Comparator.naturalOrder()));
+			new Employee (13300,"Maxim",1989,"Software",15000), };
+	
+	assertTrue (firm.removeEmployeeByPredicate(new PredicateRemoveById(12750)));
 	assertArrayEquals(expected,firm.getAllEmployees(Comparator.naturalOrder()));
 }
-
+@Test
 void removeByDepartmentTest()
 {
 	Employee[] expected = {
-	new Employee (12450,"Anatoliy",1991,"Software",12000), 
-	new Employee (12550,"Alex",1985,"QA",10000),
-	new Employee (12650,"Dan",1987,"Manadger",18000),
-	new Employee (13300,"Maxim",1989,"Software",15000)};
-	
-	assertTrue (firm.removeEmployeeByPredicate(new PredicateGetDepartment("Clining"), Comparator.naturalOrder()));
-	assertArrayEquals(expected,firm.getAllEmployees(Comparator.naturalOrder()));
-}
-void removeBySalaryTest()
-{
-	Employee[] expected = {
-			 
+			
+			new Employee (12450,"Anatoliy",1991,"Software",12000), 
+			new Employee (12550,"Alex",1985,"QA",10000),
 			new Employee (12650,"Dan",1987,"Manadger",18000),
 			new Employee (13300,"Maxim",1989,"Software",15000)};
-	assertTrue (firm.removeEmployeeByPredicate(new PredicateGetSalary(8000, 14000), Comparator.naturalOrder()));
+	
+	assertTrue (firm.removeEmployeeByPredicate(new PredicateGetDepartment("Clining")));
 	assertArrayEquals(expected,firm.getAllEmployees(Comparator.naturalOrder()));
 }
+
 
 }
