@@ -46,22 +46,7 @@ public class Employee implements Comparable<Employee>
 	public int getSalary() {
 		return salary;
 	}
-	public static Comparator<Employee> employeeBirthYearComparator = new Comparator<Employee>() 
-	{
-	    @Override
-	    public int compare(Employee employee1, Employee employee2) {
-	        int birthYear1 = employee1.getBirthYear();
-	        int birthYear2 = employee2.getBirthYear();
-	        
-	        if (birthYear1 < birthYear2) {
-	            return -1;
-	        } else if (birthYear1 > birthYear2) {
-	            return 1;
-	        } else {
-	            return 0;
-	        }
-	    }
-	};
+	
 
 	@Override
 	
