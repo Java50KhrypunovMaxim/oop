@@ -20,7 +20,8 @@ public Employee[] getAllEmployees (Comparator<Employee> comp)
 
 public Employee[] getBy (Predicate<Employee> predicate, Comparator<Employee>comp)
 {
-	Employee[] res = new Employee[myFirmEmployes.length];
+	Employee[]res = Arrays.copyOf(myFirmEmployes, myFirmEmployes.length);
+	res = new Employee[myFirmEmployes.length];
 	int index = 0;
 	for (int i = 0; i<myFirmEmployes.length; i++)
 	{
@@ -75,5 +76,14 @@ public boolean removeEmployeeByPredicate(Predicate<Employee> predicate)
 	return oldSize>myFirmEmployes.length;
 }
 
-
-}
+public Employee getEmployee(int id) {
+	Employee res = null;
+	int index = 0;
+	while(index < myFirmEmployes.length && res == null) {
+		if(myFirmEmployes[index].getId() == id) {
+			res = myFirmEmployes[index];
+		}
+		index++;
+	}
+	return res;
+}}

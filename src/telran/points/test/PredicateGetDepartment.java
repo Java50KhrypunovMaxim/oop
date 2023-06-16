@@ -16,7 +16,7 @@ public PredicateGetDepartment  (String department)
 	@Override
 	public boolean test (Employee t) {
 		
-		return t.getDepartment() == department;
+		return t.getDepartment().equals(department);
 	}
 	
 }

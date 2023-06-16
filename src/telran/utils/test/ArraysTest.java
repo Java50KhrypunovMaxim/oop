@@ -69,6 +69,8 @@ void standardSortComparatorTest()
 	Arrays.sort(array, new  DigitsSumComporator());
 	assertArrayEquals(expected,array);
 }
+
+
 @Test
 void bubbleSortComparatorTest() {
 Integer [] expected= {10, 100, 200, 5, -5};
@@ -83,9 +85,40 @@ Integer [] expected2= {-4, 2, 2, 2, 3, 3};
 Integer [] array2 = {2,3, 2, 3, 2, -4};
 bubbleSort(array2, new EvenOddComparator());
 assertArrayEquals(expected2,array2);
+}
 
+@Test
+void bubbleSortComparatorTestLambda() 
+{
+Integer [] expected= {10, 100, 200, 5, -5};
+Integer [] array = {10, 5,-5, 100, 200};
+//bubbleSort(array, (a,b)->compare(a,b));
+//bubbleSort(array, (o1,o2) ->
+//{
+//	int res = 1;
+//	if (o1%2==0 && o2%2==0)
+//	{res = o1-o2;}
+//	else if (o1%2!=0 && o2%2!=0)
+//	{res = o2-o1;}
+//	else if (o1%2==0 && o2%2!=0)
+//	{res = -1;}
+//	return res;
+//}	);
+bubbleSort(array, ArraysTest::compare);
+assertArrayEquals(expected,array);
 
 
 }
+static private int compare(Integer o1, Integer o2) 
+{
+	int res = 1;
+	if (o1%2==0 && o2%2==0)
+	{res = o1-o2;}
+	else if (o1%2!=0 && o2%2!=0)
+	{res = o2-o1;}
+	else if (o1%2==0 && o2%2!=0)
+	{res = -1;}
+	return res;
+}	
 
 }
