@@ -10,7 +10,7 @@ public class Calculator2
     public static final char ADDITION = '+';
     public static final char MULTIPLICATION = '*';
     public static final char SUBTRACTION = '-';
-    public static final char DIVISION = '/';
+    public static final char DIVISION = '/'; 
 
     public static double calculate(CalcData cd) {
         
@@ -28,5 +28,5 @@ public class Calculator2
         DoubleBinaryOperator operation = operators.get(operator);
         return operation.apply(operand1, operand2);
     }
+   
 }
-

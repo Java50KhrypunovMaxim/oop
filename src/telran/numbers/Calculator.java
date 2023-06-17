@@ -25,10 +25,7 @@ public class Calculator {
         double res = 0;
 
         for (int i = 0; i < signs.length; i++) {
-            if (operator == signs[i]) {
-                res = operators[i].apply(operand1, operand2);
-                break;
-            }
+        	 res = operator == signs[i] ? operators[i].apply(operand1, operand2) : res;
         }
 
         return res;
