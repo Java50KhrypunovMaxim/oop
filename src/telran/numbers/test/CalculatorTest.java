@@ -6,6 +6,7 @@ import java.util.function.BinaryOperator;
 
 import org.junit.jupiter.api.Test;
 
+import telran.numbers.AddTask_3_And_4;
 import telran.numbers.CalcData;
 import telran.numbers.Calculator;
 import telran.numbers.Calculator2;
@@ -50,6 +51,20 @@ void calcilate2Test()
 	assertEquals(800, Calculator2.calculate(new CalcData(40,20,'*')));
 	assertEquals(2, Calculator2.calculate(new CalcData(40,20,'/')));
 }
+@Test
+void addTask3()
+{
+	assertTrue(AddTask_3_And_4.isAnagram("MaximMax","axMMixaM"));
+	assertFalse(AddTask_3_And_4.isAnagram("MaximMafx","axMMixaM"));
+}
+@Test
+void addTask4()
+{
+	assertTrue(AddTask_3_And_4.hasValidBrackets("aaaaa (sdfsdfdsf[dfd(f)f] zcvzxcv {{[ghjk]}} asd )"));
+	assertFalse(AddTask_3_And_4.hasValidBrackets(")dfgswfgsf("));
+	assertFalse(AddTask_3_And_4.hasValidBrackets("[werwert(wertwrtw] wertrt)"));
+}
+
 }
 
  interface DoubleBinaryOperator extends BinaryOperator<Double>
