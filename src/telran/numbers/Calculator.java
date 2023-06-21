@@ -4,36 +4,42 @@ import java.util.function.BinaryOperator;
 
 
 public class Calculator {
-    public static final char ADDITION = '+';
-    public static final char MULTIPLICATION = '*';
-    public static final char SUBTRACTION = '-';
-    public static final char DIVISION = '/';
-
-    public static double calculate(CalcData cd) {
-        char operator = cd.getOperation();
-        double operand1 = cd.getOp1();
-        double operand2 = cd.getOp2();
-
-        DoubleBinaryOperator[] operators = {
-            (a, b) -> a + b,
-            (a, b) -> a * b,
-            (a, b) -> a - b,
-            (a, b) -> a / b
-        };
-
-        char[] signs = {ADDITION, MULTIPLICATION, SUBTRACTION, DIVISION};
-        double res = 0;
-
-        for (int i = 0; i < signs.length; i++) {
-        	 res = operator == signs[i] ? operators[i].apply(operand1, operand2) : res;
-        }
-
-        return res;
-    }
+	static DoubleBinaryOperator[] operators = {
+			(a, b) -> a + b,
+			(a, b) -> a - b,
+			(a, b) -> a * b,
+			(a, b) -> 
+			{if (b==0)
+				{throw new ArithmeticException("ArithmeticException");} 
+			return a/b;
+				
+			}
+	};
+	static char[] operations = {
+			'+', '-', '*','/'
+	};
+	static public double calculate(CalcData cd) {
+		int index = findIndex(cd.operation);
+		if (index<0) 
+		{
+			throw new UnsupportedOperationException("Unsupported Operation " + cd.operation);
+		}
+		return operators[index].apply(cd.op1, cd.op2);
+	}
+	private static int findIndex(char operation) {
+		int res = -1;
+		int index = 0;
+		while(index < operations.length && res == -1) {
+			if(operations[index] == operation) {
+				res = index;
+			}
+			index++;
+		}
+		
+		return res;
+	}
 }
-
 interface DoubleBinaryOperator extends BinaryOperator<Double> {
-
+	
 }
-
 

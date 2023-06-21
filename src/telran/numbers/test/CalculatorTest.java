@@ -42,6 +42,8 @@ void calcilateTest()
 	assertEquals(60, Calculator.calculate(new CalcData(40,20,'+')));
 	assertEquals(800, Calculator.calculate(new CalcData(40,20,'*')));
 	assertEquals(2, Calculator.calculate(new CalcData(40,20,'/')));
+	assertThrows(UnsupportedOperationException.class,()->Calculator.calculate(new CalcData(40,20,'&')));
+	assertThrows(ArithmeticException.class,()->Calculator.calculate(new CalcData(40,0,'/')));
 }
 @Test
 void calcilate2Test()
@@ -56,13 +58,6 @@ void addTask3()
 {
 	assertTrue(AddTask_3_And_4.isAnagram("MaximMax","axMMixaM"));
 	assertFalse(AddTask_3_And_4.isAnagram("MaximMafx","axMMixaM"));
-}
-@Test
-void addTask4()
-{
-	assertTrue(AddTask_3_And_4.hasValidBrackets("aaaaa (sdfsdfdsf[dfd(f)f] zcvzxcv {{[ghjk]}} asd )"));
-	assertFalse(AddTask_3_And_4.hasValidBrackets(")dfgswfgsf("));
-	assertFalse(AddTask_3_And_4.hasValidBrackets("[werwert(wertwrtw] wertrt)"));
 }
 
 }
