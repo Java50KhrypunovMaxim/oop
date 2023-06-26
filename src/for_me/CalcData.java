@@ -1,4 +1,4 @@
-package telran.numbers;
+package for_me;
 
 public class CalcData 
 {
