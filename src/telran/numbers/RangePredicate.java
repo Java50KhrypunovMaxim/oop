@@ -11,7 +11,9 @@ public class RangePredicate implements Iterable<Integer> {
 	Predicate<Integer> predicate;
 
 	public RangePredicate(int minInclusive, int maxExclusive) {
-
+		if(minInclusive >= maxExclusive) {
+			throw new IllegalArgumentException("min must be less than max");
+		}
 		this.minInclusive = minInclusive;
 		this.maxExclusive = maxExclusive;
 	}
@@ -43,7 +45,7 @@ public class RangePredicate implements Iterable<Integer> {
 	}
 
 	private class RangePredicateIterator implements Iterator<Integer> {
-		int current = minInclusive;
+		int current;
 		Predicate<Integer> innerPredicate;
 		
 		RangePredicateIterator(Predicate<Integer> predicate) {
