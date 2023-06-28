@@ -15,6 +15,7 @@ class ShapesTest {
     Rectangle rect;
     Square sq;
     Predicate<Shape> predicate = shape -> true ;
+    Predicate<Shape> predicate2 = shape -> shape instanceof Square;
     
     @BeforeEach
     void setUp() {
@@ -58,13 +59,7 @@ class ShapesTest {
     assertArrayEquals(expected, generalCanvas.toArray());
     }
     
-    @Test
-    void removeTest2()
-    {
-    	 generalCanvas.removeNestedCanvases();
-         Shape[] expected = {canvas};
-         assertArrayEquals(expected, generalCanvas.getRemovedShapes());
-    }
+
     @Test
     void removeIfTest()
     {	
@@ -72,6 +67,14 @@ class ShapesTest {
     	Shape[] expected = {};
     	assertArrayEquals(expected,generalCanvas.toArray());
     }
-    
-    
+    @Test
+    void removeTest3()
+    {
+    	generalCanvas.removeIf(predicate);
+    	generalCanvas.addShape(rect);
+        generalCanvas.addShape(sq); 
+    	generalCanvas.removeIf(predicate2);
+    	Shape[] expected = {rect};
+    	assertArrayEquals(expected,generalCanvas.toArray());
+    }
 }
